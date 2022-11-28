@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">AdminGarudaNih</string>
+    <string name="kemudahan">Kemudahan</string>
+    <string name="fasilitas">Fasilitas</string>
+    <string name="terpercaya">Terpercaya</string>
+
+    <string name="onboarding_desc_satu">Hanya dengan satu langkah registrasi, nikmati segala kemudahan dalam booking tiket pesawat</string>
+    <string name="onboarding_desc_dua">Nikmati kemudahan penerbangan ke seluruh dunia dengan aplikasi kita</string>
+    <string name="onboarding_desc_tiga">Kemanan dalam bertransaksi Anda merupakan prioritas bagi kami</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_home">Home</string>
+    <string name="title_history">History</string>
+    <string name="title_shop">Shop</string>
+    <string name="ic_settings">Settings</string>
 </resources>
