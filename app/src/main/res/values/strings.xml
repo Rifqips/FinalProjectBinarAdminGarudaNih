@@ -13,4 +13,10 @@
     <string name="title_history">History</string>
     <string name="title_shop">Shop</string>
     <string name="ic_settings">Settings</string>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/warna_button</item>
+        <item name="colorPrimaryDark">@color/warna_second_button</item>
+    </style>
 </resources>

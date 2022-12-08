@@ -9,60 +9,35 @@
     android:background="@color/warna_background"
     tools:context=".view.auth.LoginActivity">
 
-    <TextView
-        android:id="@+id/masuk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Masuk Sebagai Admin"
-        android:layout_marginVertical="40dp"
-        android:fontFamily="@font/poppins_medium"
-        android:textStyle="bold"
-        android:textColor="@color/warna_primary_font"
-        android:textSize="25sp"
+    <ImageView
+        android:id="@+id/imgLogin"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginVertical="100dp"
+        android:src="@drawable/ic_logo_gn"
+        app:civ_border_color="@color/warna_background"
+        app:civ_border_width="3dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imgLogin"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/ic_logogn"
-        android:layout_marginVertical="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:civ_border_color="@color/warna_background"
-        app:civ_border_width="3dp"
-        app:layout_constraintTop_toBottomOf="@+id/masuk" />
 
-    <TextView
-        android:id="@+id/tvGarudaNih"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_bold"
-        android:text="GarudaNih."
-        android:layout_marginVertical="20dp"
-        android:textColor="@color/warna_primary_font"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgLogin" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="20dp"
         android:background="@drawable/rounded_bg"
         android:textColorHint="@color/warna_primary_font"
         android:textColor="@color/warna_primary_font"
         app:hintTextColor="@color/warna_primary_font"
         app:boxStrokeColor="@color/warna_background"
         app:boxStrokeWidth="0dp"
+        android:layout_marginVertical="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvGarudaNih"
+        app:layout_constraintTop_toBottomOf="@+id/imgLogin"
         app:shapeAppearanceOverlay="@style/Button">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -113,20 +88,21 @@
             app:boxStrokeWidth="0dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/swLanguange"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/rlCheckbox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:checked="true"
-        android:text="Inggris / Indonesia"
-        android:fontFamily="@font/poppins_medium"
-        android:textColor="@color/warna_secondary_font"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passworInputLayout"
-        app:useMaterialThemeColors="true" />
+        app:layout_constraintTop_toBottomOf="@+id/passworInputLayout">
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Ingat Password"/>
+
+    </RelativeLayout>
 
     <Button
         android:id="@+id/btnLogin"
@@ -139,7 +115,7 @@
         android:text="Masuk"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/swLanguange" />
+        app:layout_constraintTop_toBottomOf="@+id/rlCheckbox" />
 
     <Button
         android:id="@+id/btnRegister"

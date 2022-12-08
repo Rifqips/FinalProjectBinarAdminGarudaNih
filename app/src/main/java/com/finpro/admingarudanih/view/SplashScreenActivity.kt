@@ -5,13 +5,18 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.finpro.admingarudanih.R
+import com.finpro.admingarudanih.databinding.ActivitySplashScreenBinding
 import com.finpro.admingarudanih.view.auth.LoginActivity
 
 class SplashScreenActivity : AppCompatActivity() {
 
+    private lateinit var binding : ActivitySplashScreenBinding
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash_screen)
+        binding = ActivitySplashScreenBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         Handler().postDelayed({
                 startActivity(Intent(this, LoginActivity::class.java))
