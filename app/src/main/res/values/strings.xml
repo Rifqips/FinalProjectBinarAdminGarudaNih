@@ -19,6 +19,7 @@
         <item name="colorPrimary">@color/warna_button</item>
         <item name="colorPrimaryDark">@color/warna_second_button</item>
     </style>
+
     <string name="title_activity_register">RegisterActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>

@@ -2,7 +2,6 @@ package com.finpro.admingarudanih.view.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toolbar
 import androidx.viewpager.widget.ViewPager
 import com.finpro.admingarudanih.databinding.ActivityHomeBinding
 import com.finpro.admingarudanih.view.home.fragment.ListTiketFragment
