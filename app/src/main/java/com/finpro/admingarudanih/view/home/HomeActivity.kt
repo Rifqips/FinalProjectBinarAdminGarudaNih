@@ -6,6 +6,7 @@ import androidx.viewpager.widget.ViewPager
 import com.finpro.admingarudanih.databinding.ActivityHomeBinding
 import com.finpro.admingarudanih.view.home.fragment.ListTiketFragment
 import com.finpro.admingarudanih.view.home.fragment.PostingTiketFragment
+import com.finpro.admingarudanih.view.home.fragment.TambahAdminFragment
 import com.finpro.admingarudanih.view.home.fragment.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayout
 
@@ -34,6 +35,7 @@ class HomeActivity : AppCompatActivity() {
         // add fragment to the list
         adapter.addFragment(ListTiketFragment(), "List Tiket")
         adapter.addFragment(PostingTiketFragment(), "Posting Tiket")
+        adapter.addFragment(TambahAdminFragment(), "Tambah Admin")
 
         // Adding the Adapter to the ViewPager
         pager.adapter = adapter

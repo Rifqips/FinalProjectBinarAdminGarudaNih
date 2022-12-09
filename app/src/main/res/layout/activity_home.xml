@@ -52,6 +52,21 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivUser"
             app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:textAllCaps="false"
+            android:textColor="@color/warna_button"
+            android:outlineSpotShadowColor="@color/warna_button"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cardView"
+            app:layout_constraintBottom_toBottomOf="@+id/cardView"
+            style="?attr/materialButtonOutlinedStyle"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.appbar.AppBarLayout
