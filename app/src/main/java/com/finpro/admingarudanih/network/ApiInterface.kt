@@ -4,6 +4,7 @@ import com.finpro.admingarudanih.model.auth.ResponseUserLogin
 import com.finpro.admingarudanih.model.auth.UserLogin
 import com.finpro.admingarudanih.model.getusers.DataUserItem
 import com.finpro.admingarudanih.model.getusers.GetUserItem
+import com.finpro.admingarudanih.model.getusers.ResponseAllUsers
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -15,5 +16,5 @@ interface ApiInterface {
     fun loginUser(@Body userLogin : UserLogin): Call<ResponseUserLogin>
 
     @GET("v1/admin/all")
-    fun getUser(@Header("Authorization")authHeader : String): Call<GetUserItem>
+    fun getUser(@Header("Authorization")authHeader : String): Call<ResponseAllUsers>
 }

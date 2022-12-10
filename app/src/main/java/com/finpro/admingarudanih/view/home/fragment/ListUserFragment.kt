@@ -54,7 +54,7 @@ class ListUserFragment : Fragment() {
             if (it != null){
                 binding.rvGetUser.layoutManager = LinearLayoutManager(context,
                     LinearLayoutManager.VERTICAL,false)
-                adapterHistory = AdapterGetUser(it.data)
+                adapterHistory = AdapterGetUser(it.data.user)
                 binding.rvGetUser.adapter = adapterHistory
                 Log.d(TAG, "onViewCreated: ${it}")
                 Toast.makeText(context, "Data Tampil", Toast.LENGTH_SHORT).show()
