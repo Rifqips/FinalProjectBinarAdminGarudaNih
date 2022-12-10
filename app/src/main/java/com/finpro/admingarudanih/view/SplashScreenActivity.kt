@@ -4,30 +4,33 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import com.finpro.admingarudanih.R
+import androidx.lifecycle.ViewModelProvider
 import com.finpro.admingarudanih.databinding.ActivitySplashScreenBinding
 import com.finpro.admingarudanih.utils.CheckUserUtil
 import com.finpro.admingarudanih.view.auth.LoginActivity
 import com.finpro.admingarudanih.view.home.HomeActivity
 import com.finpro.admingarudanih.viewmodel.AuthViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SplashScreenActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivitySplashScreenBinding
-    lateinit var authViewModel : AuthViewModel
-
+    private lateinit var authViewModel : AuthViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+
+        authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
 
         Handler().postDelayed({
-//            sudahlogin()
-                startActivity(Intent(this, LoginActivity::class.java))
-                finish()
+            sudahlogin()
+            finish()
         },3000)
+        setContentView(binding.root)
     }
+
     private fun sudahlogin(){
         authViewModel.getToken().observe(this){
             if (it != null){
