@@ -17,7 +17,6 @@ class SplashScreenActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivitySplashScreenBinding
     private lateinit var authViewModel : AuthViewModel
-    private lateinit var session : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
