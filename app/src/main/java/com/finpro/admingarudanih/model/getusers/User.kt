@@ -1,6 +1,5 @@
 package com.finpro.admingarudanih.model.getusers
 
-
 import com.google.gson.annotations.SerializedName
 
 data class User(

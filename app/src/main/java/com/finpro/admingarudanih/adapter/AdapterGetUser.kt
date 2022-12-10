@@ -31,6 +31,6 @@ class AdapterGetUser(val listGetUser: List<User>): RecyclerView.Adapter<AdapterG
     }
 
     override fun getItemCount(): Int {
-        return listGetUser?.size ?: 0
+        return listGetUser.size
     }
 }
