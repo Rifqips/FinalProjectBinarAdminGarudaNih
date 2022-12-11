@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
 import com.finpro.admingarudanih.databinding.ActivityHomeBinding
-import com.finpro.admingarudanih.view.home.fragment.ListTiketFragment
+import com.finpro.admingarudanih.view.home.fragment.ListUserFragment
 import com.finpro.admingarudanih.view.home.fragment.PostingTiketFragment
 import com.finpro.admingarudanih.view.home.fragment.TambahAdminFragment
 import com.finpro.admingarudanih.view.home.fragment.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayout
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityHomeBinding
@@ -33,7 +35,7 @@ class HomeActivity : AppCompatActivity() {
         val adapter = ViewPagerAdapter(supportFragmentManager)
 
         // add fragment to the list
-        adapter.addFragment(ListTiketFragment(), "List Tiket")
+        adapter.addFragment(ListUserFragment(), "List User")
         adapter.addFragment(PostingTiketFragment(), "Posting Tiket")
         adapter.addFragment(TambahAdminFragment(), "Tambah Admin")
 
