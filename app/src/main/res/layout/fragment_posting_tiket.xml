@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,53 +7,35 @@
     android:background="@color/warna_background"
     tools:context=".view.home.fragment.PostingTiketFragment">
 
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView">
-
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingBottom="30dp">
-
-            <me.relex.circleindicator.CircleIndicator3
-                android:id="@+id/indicatorBanner"
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:layout_marginVertical="10dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="10dp"
                 android:layout_marginStart="10dp"
+                android:layout_marginVertical="10dp"
                 android:text="International Flight"
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/indicatorBanner" />
+                app:layout_constraintStart_toStartOf="@+id/constraintView"
+                app:layout_constraintTop_toTopOf="@+id/constraintView" />
 
             <TextView
                 android:id="@+id/showInternational"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="10dp"
                 android:text="Show All"
                 android:textColor="#1D3FFF"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/indicatorBanner"
-                app:layout_constraintTop_toBottomOf="@+id/indicatorBanner" />
+                android:layout_marginEnd="15dp"
+                android:layout_marginVertical="10dp"
+                app:layout_constraintTop_toTopOf="@+id/constraintView"
+                app:layout_constraintEnd_toEndOf="@+id/constraintView"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvInternational"
@@ -63,7 +45,7 @@
                 android:layout_marginEnd="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                app:layout_constraintTop_toBottomOf="@+id/showInternational" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -83,6 +65,7 @@
                 android:layout_marginTop="8dp"
                 android:text="Show All"
                 android:textColor="#1D3FFF"
+                android:layout_marginEnd="15dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/rvInternational"
                 app:layout_constraintTop_toBottomOf="@+id/rvInternational" />
@@ -101,6 +84,4 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-    </ScrollView>
-</FrameLayout>
+</ScrollView>

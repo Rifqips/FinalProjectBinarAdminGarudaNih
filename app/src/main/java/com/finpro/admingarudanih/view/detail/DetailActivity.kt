@@ -38,7 +38,7 @@ class DetailActivity : AppCompatActivity() {
 //        val image = itemUser.getStringExtra("image").toString().toInt()
 
         binding.tvIdUser.text = "ID : $id"
-        binding.tvEmailUser.text = emaild
+        binding.tvEmailUser.text = email
         binding.tvUsername.text = username
         binding.tvCreated.text = created
         binding.tvUpdated.text = update
