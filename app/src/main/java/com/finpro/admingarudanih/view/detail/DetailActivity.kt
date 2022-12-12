@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.finpro.admingarudanih.databinding.ActivityDetailBinding
+import com.finpro.admingarudanih.view.auth.UpdateUserActivity
 import com.finpro.admingarudanih.view.home.HomeActivity
 import dagger.hilt.android.AndroidEntryPoint
 import de.hdodenhof.circleimageview.CircleImageView
@@ -22,6 +23,10 @@ class DetailActivity : AppCompatActivity() {
         binding.ivBack.setOnClickListener {
             startActivity(Intent(this, HomeActivity::class.java))
         }
+
+        binding.btnUpdateUser.setOnClickListener {
+            startActivity(Intent(this, UpdateUserActivity::class.java))
+        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -35,6 +40,7 @@ class DetailActivity : AppCompatActivity() {
         val update = itemUser.getStringExtra("update")
         val role = itemUser.getStringExtra("role")
         val phone = itemUser.getStringExtra("phone")
+        val password = itemUser.getStringExtra("password")
 //        val image = itemUser.getStringExtra("image").toString().toInt()
 
         binding.tvIdUser.text = "ID : $id"
@@ -44,6 +50,7 @@ class DetailActivity : AppCompatActivity() {
         binding.tvUpdated.text = update
         binding.tvRoleUser.text = role
         binding.tvPhone.text = phone
+        binding.tvPassword.text = password
 //        binding.ivSetImage.setImageResource(image)
     }
 }

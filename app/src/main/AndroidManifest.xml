@@ -23,6 +23,13 @@
         android:theme="@style/Theme.GarudaNih"
         tools:targetApi="31">
         <activity
+            android:name=".view.auth.UpdateUserActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".view.detail.DetailActivity"
             android:exported="false">
             <meta-data

@@ -3,7 +3,7 @@
     <style name="Theme.GarudaNih" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/warna_primary_font</item>
-        <item name="colorPrimaryVariant">@color/warna_second_button</item>
+        <item name="colorPrimaryVariant">@color/warna_button</item>
         <item name="colorOnPrimary">@color/warna_primary_font</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/warna_button</item>

@@ -31,8 +31,10 @@ class AdapterGetUser(val listGetUser: List<User>): RecyclerView.Adapter<AdapterG
         holder.binding.tvUpdated.text = listGetUser[position].updatedAt
         holder.binding.tvRoleUser.text = listGetUser[position].role
         holder.binding.tvPhone.text = listGetUser[position].phone
-        Glide.with(holder.itemView.context)
-            .load(listGetUser[position].image).into(holder.binding.ivSetImage)
+        holder.binding.tvPassword.text = listGetUser[position].password
+
+//        Glide.with(holder.itemView.context)
+//            .load(listGetUser[position].image).into(holder.binding.ivSetImage)
 
         holder.binding.imgPoster.setOnClickListener {
             val intent = Intent(it.context, DetailActivity::class.java)
@@ -44,6 +46,7 @@ class AdapterGetUser(val listGetUser: List<User>): RecyclerView.Adapter<AdapterG
             intent.putExtra("role", listGetUser[position].role)
             intent.putExtra("phone", listGetUser[position].phone)
             intent.putExtra("image", listGetUser[position].image)
+            intent.putExtra("password", listGetUser[position].password)
             it.context.startActivity(intent)
         }
     }
