@@ -5,6 +5,7 @@ import com.finpro.admingarudanih.model.auth.UserLogin
 import com.finpro.admingarudanih.model.getusers.DataUserItem
 import com.finpro.admingarudanih.model.getusers.GetUserItem
 import com.finpro.admingarudanih.model.getusers.ResponseAllUsers
+import com.finpro.admingarudanih.model.tickets.ResponseLocalTicket
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -17,4 +18,10 @@ interface ApiInterface {
 
     @GET("v1/admin/all")
     fun getUser(@Header("Authorization")authHeader : String): Call<ResponseAllUsers>
+
+    @GET("v1/ticket-doms")
+    fun getLocalTicket(): Call<ResponseLocalTicket>
+
+    @GET("v1/ticket-intr")
+    fun getIntrTicket(): Call<ResponseLocalTicket>
 }
