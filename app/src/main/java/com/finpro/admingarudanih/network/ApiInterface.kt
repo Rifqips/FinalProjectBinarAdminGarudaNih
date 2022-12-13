@@ -2,11 +2,26 @@ package com.finpro.admingarudanih.network
 
 import com.finpro.admingarudanih.model.auth.ResponseUserLogin
 import com.finpro.admingarudanih.model.auth.UserLogin
+import com.finpro.admingarudanih.model.getusers.DataUserItem
+import com.finpro.admingarudanih.model.getusers.GetUserItem
+import com.finpro.admingarudanih.model.getusers.ResponseAllUsers
+import com.finpro.admingarudanih.model.tickets.ResponseLocalTicket
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface ApiInterface {
     @POST("v1/user/login")
     fun loginUser(@Body userLogin : UserLogin): Call<ResponseUserLogin>
+
+    @GET("v1/admin/all")
+    fun getUser(@Header("Authorization")authHeader : String): Call<ResponseAllUsers>
+
+    @GET("v1/ticket-doms")
+    fun getLocalTicket(): Call<ResponseLocalTicket>
+
+    @GET("v1/ticket-intr")
+    fun getIntrTicket(): Call<ResponseLocalTicket>
 }
