@@ -1,5 +1,6 @@
 package com.finpro.admingarudanih.view.home.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.finpro.admingarudanih.R
 import com.finpro.admingarudanih.adapter.AdapterTiket
 import com.finpro.admingarudanih.databinding.FragmentPostingTiketBinding
+import com.finpro.admingarudanih.view.addnewtiket.TambahTiketActivity
 import com.finpro.admingarudanih.viewmodel.TicketViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -35,6 +37,12 @@ class PostingTiketFragment : Fragment() {
         setTiketLokal()
         setTiketIntr()
 
+
+        binding.btnAdd.setOnClickListener {
+            val intent = Intent(context, TambahTiketActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     fun setTiketLokal(){
@@ -44,6 +52,7 @@ class PostingTiketFragment : Fragment() {
                 binding.rvLocal.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                 tiketAdapter = AdapterTiket(it.data.tickets)
                 binding.rvLocal.adapter = tiketAdapter
+                tiketAdapter.notifyDataSetChanged()
             } else {
                 Toast.makeText(requireActivity(), "Data Tidak Tampil", Toast.LENGTH_SHORT).show()
             }
@@ -57,6 +66,7 @@ class PostingTiketFragment : Fragment() {
                 binding.rvInternational.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                 tiketAdapter = AdapterTiket(it.data.tickets)
                 binding.rvInternational.adapter = tiketAdapter
+                tiketAdapter.notifyDataSetChanged()
             } else {
                 Toast.makeText(requireActivity(), "Data Tidak Tampil", Toast.LENGTH_SHORT).show()
             }
