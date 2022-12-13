@@ -35,8 +35,7 @@ class PostingTiketFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setTiketLokal()
-        setTiketIntr()
+        getAllData()
 
         binding.btnAdd.setOnClickListener {
             val intent = Intent(context, TambahTiketActivity::class.java)
@@ -45,46 +44,44 @@ class PostingTiketFragment : Fragment() {
 
     }
 
+     private fun getAllData(){
+         val swipeRefresh = binding.swipeRefresh
+         swipeRefresh.setOnRefreshListener {
+             if(swipeRefresh.isRefreshing){
+                 setTiketLokal()
+                 setTiketIntr()
+                 swipeRefresh.isRefreshing = false
+             }
+         }
+
+    }
+
     private fun setTiketLokal(){
-        val swipeRefresh = binding.swipeRefresh
-        swipeRefresh.setOnRefreshListener {
-            val viewModel = ViewModelProvider(requireActivity()).get(TicketViewModel::class.java)
-            viewModel.getLdTiketLocal().observe(viewLifecycleOwner){
-                if (it != null) {
-                    binding.rvLocal.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-                    tiketAdapter = AdapterTiket(it.data.tickets)
-                    binding.rvLocal.adapter = tiketAdapter
-                    tiketAdapter.notifyDataSetChanged()
-                } else {
-                    Toast.makeText(requireActivity(), "Data Tidak Tampil", Toast.LENGTH_SHORT).show()
-                }
-            }
-            viewModel.callTicketLocal()
-            if(swipeRefresh.isRefreshing){
-                swipeRefresh.isRefreshing = false
+        val viewModel = ViewModelProvider(requireActivity()).get(TicketViewModel::class.java)
+        viewModel.getLdTiketLocal().observe(viewLifecycleOwner){
+            if (it != null) {
+                binding.rvLocal.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                tiketAdapter = AdapterTiket(it.data.tickets)
+                binding.rvLocal.adapter = tiketAdapter
+                tiketAdapter.notifyDataSetChanged()
+            } else {
+                Toast.makeText(requireActivity(), "Data Tidak Tampil", Toast.LENGTH_SHORT).show()
             }
         }
+        viewModel.callTicketLocal()
     }
     private fun setTiketIntr(){
-
-        val swipeRefresh = binding.swipeRefresh
-        swipeRefresh.setOnRefreshListener {
-            val viewModel = ViewModelProvider(requireActivity()).get(TicketViewModel::class.java)
-            viewModel.getLdTiketIntr().observe(viewLifecycleOwner){
-                if (it != null) {
-                    binding.rvInternational.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-                    tiketAdapter = AdapterTiket(it.data.tickets)
-                    binding.rvInternational.adapter = tiketAdapter
-                    tiketAdapter.notifyDataSetChanged()
-                } else {
-                    Toast.makeText(requireActivity(), "Data Tidak Tampil", Toast.LENGTH_SHORT).show()
-                }
+        val viewModel = ViewModelProvider(requireActivity()).get(TicketViewModel::class.java)
+        viewModel.getLdTiketIntr().observe(viewLifecycleOwner){
+            if (it != null) {
+                binding.rvInternational.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                tiketAdapter = AdapterTiket(it.data.tickets)
+                binding.rvInternational.adapter = tiketAdapter
+                tiketAdapter.notifyDataSetChanged()
+            } else {
+                Toast.makeText(requireActivity(), "Data Tidak Tampil", Toast.LENGTH_SHORT).show()
             }
-            viewModel.callTicketIntr()
-            if(swipeRefresh.isRefreshing){
-                swipeRefresh.isRefreshing = false
-            }
-
         }
+        viewModel.callTicketIntr()
     }
 }
