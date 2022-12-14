@@ -1,7 +1,9 @@
 package com.finpro.admingarudanih.view.home
 
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.viewpager.widget.ViewPager
 import com.finpro.admingarudanih.databinding.ActivityHomeBinding
 import com.finpro.admingarudanih.view.home.fragment.ListUserFragment
@@ -44,5 +46,18 @@ class HomeActivity : AppCompatActivity() {
 
         // bind the viewPager with the TabLayout.
         tab.setupWithViewPager(pager)
+    }
+    override fun onBackPressed() {
+
+        AlertDialog.Builder(this)
+            .setTitle("Tutup Aplikasi")
+            .setMessage("Yakin tutup dari aplikasi?")
+            .setPositiveButton("Ya"){ dialogInterface: DialogInterface, i: Int ->
+                finishAffinity()
+            }
+            .setNegativeButton("Tidak"){ dialogInterface: DialogInterface, i: Int ->
+                dialogInterface.dismiss()
+            }
+            .show()
     }
 }

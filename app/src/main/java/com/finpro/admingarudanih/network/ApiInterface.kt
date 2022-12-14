@@ -5,6 +5,9 @@ import com.finpro.admingarudanih.model.auth.UserLogin
 import com.finpro.admingarudanih.model.getusers.DataUserItem
 import com.finpro.admingarudanih.model.getusers.GetUserItem
 import com.finpro.admingarudanih.model.getusers.ResponseAllUsers
+import com.finpro.admingarudanih.model.tickets.DataTiket
+import com.finpro.admingarudanih.model.tickets.RequestBodyTiket
+import com.finpro.admingarudanih.model.tickets.ResponseAddTiket
 import com.finpro.admingarudanih.model.tickets.ResponseLocalTicket
 import retrofit2.Call
 import retrofit2.http.Body
@@ -24,4 +27,8 @@ interface ApiInterface {
 
     @GET("v1/ticket-intr")
     fun getIntrTicket(): Call<ResponseLocalTicket>
+
+    @POST("v1/ticket")
+    fun postTiket(@Header("Authorization")authHeader : String,
+                  @Body request : RequestBodyTiket): Call<ResponseAddTiket>
 }

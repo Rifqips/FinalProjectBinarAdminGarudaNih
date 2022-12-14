@@ -1,5 +1,6 @@
 package com.finpro.admingarudanih.view.home.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.finpro.admingarudanih.R
 import com.finpro.admingarudanih.adapter.AdapterTiket
 import com.finpro.admingarudanih.databinding.FragmentPostingTiketBinding
+import com.finpro.admingarudanih.view.addnewtiket.TambahTiketActivity
 import com.finpro.admingarudanih.viewmodel.TicketViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,6 +22,7 @@ class PostingTiketFragment : Fragment() {
 
     private lateinit var binding : FragmentPostingTiketBinding
     lateinit var tiketAdapter : AdapterTiket
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,31 +35,49 @@ class PostingTiketFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setTiketLokal()
-        setTiketIntr()
+        getAllData()
+
+        binding.btnAdd.setOnClickListener {
+            val intent = Intent(context, TambahTiketActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 
-    fun setTiketLokal(){
+     private fun getAllData(){
+         val swipeRefresh = binding.swipeRefresh
+         swipeRefresh.setOnRefreshListener {
+             if(swipeRefresh.isRefreshing){
+                 setTiketLokal()
+                 setTiketIntr()
+                 swipeRefresh.isRefreshing = false
+             }
+         }
+
+    }
+
+    private fun setTiketLokal(){
         val viewModel = ViewModelProvider(requireActivity()).get(TicketViewModel::class.java)
         viewModel.getLdTiketLocal().observe(viewLifecycleOwner){
             if (it != null) {
                 binding.rvLocal.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                 tiketAdapter = AdapterTiket(it.data.tickets)
                 binding.rvLocal.adapter = tiketAdapter
+                tiketAdapter.notifyDataSetChanged()
             } else {
                 Toast.makeText(requireActivity(), "Data Tidak Tampil", Toast.LENGTH_SHORT).show()
             }
         }
         viewModel.callTicketLocal()
     }
-    fun setTiketIntr(){
+    private fun setTiketIntr(){
         val viewModel = ViewModelProvider(requireActivity()).get(TicketViewModel::class.java)
         viewModel.getLdTiketIntr().observe(viewLifecycleOwner){
             if (it != null) {
                 binding.rvInternational.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                 tiketAdapter = AdapterTiket(it.data.tickets)
                 binding.rvInternational.adapter = tiketAdapter
+                tiketAdapter.notifyDataSetChanged()
             } else {
                 Toast.makeText(requireActivity(), "Data Tidak Tampil", Toast.LENGTH_SHORT).show()
             }

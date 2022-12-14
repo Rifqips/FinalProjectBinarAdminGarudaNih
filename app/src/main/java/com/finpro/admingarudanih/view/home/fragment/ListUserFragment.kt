@@ -58,6 +58,7 @@ class ListUserFragment : Fragment() {
                 binding.rvGetUser.adapter = adapterHistory
                 Log.d(TAG, "onViewCreated: ${it.data.user}")
                 Toast.makeText(context, "Data Tampil", Toast.LENGTH_SHORT).show()
+                adapterHistory.notifyDataSetChanged()
             }
         }
         userViewModel.getUserToken(setTokenUser)
