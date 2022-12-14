@@ -52,6 +52,13 @@ class PostingTiketFragment : Fragment() {
         setTiketIntr()
     }
 
+    override fun onStart() {
+        super.onStart()
+        setTiketLokal()
+        setTiketIntr()
+
+    }
+
      private fun getAllData(){
          val swipeRefresh = binding.swipeRefresh
          swipeRefresh.setOnRefreshListener {

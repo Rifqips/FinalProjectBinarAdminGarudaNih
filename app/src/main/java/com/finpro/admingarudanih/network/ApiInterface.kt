@@ -10,10 +10,7 @@ import com.finpro.admingarudanih.model.tickets.RequestBodyTiket
 import com.finpro.admingarudanih.model.tickets.ResponseAddTiket
 import com.finpro.admingarudanih.model.tickets.ResponseLocalTicket
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiInterface {
     @POST("v1/user/login")
@@ -31,4 +28,9 @@ interface ApiInterface {
     @POST("v1/ticket")
     fun postTiket(@Header("Authorization")authHeader : String,
                   @Body request : RequestBodyTiket): Call<ResponseAddTiket>
+
+    @DELETE("v1/ticket/{id}")
+    fun deleteTiket(@Path("id")id : Int) : Call<ResponseLocalTicket>
+
+
 }

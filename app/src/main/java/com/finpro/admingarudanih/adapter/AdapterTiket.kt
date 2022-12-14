@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.finpro.admingarudanih.databinding.ItemBinding
 import com.finpro.admingarudanih.model.tickets.Ticket
+import com.finpro.admingarudanih.view.detail.DetailTiketActivity
 
 
 class AdapterTiket (private val listTiket : List<Ticket>): RecyclerView.Adapter<AdapterTiket.ViewHolder>() {
@@ -30,19 +31,19 @@ class AdapterTiket (private val listTiket : List<Ticket>): RecyclerView.Adapter<
         holder.binding.txtAvailable.text = listTiket[position].totalChair.toString()
         holder.binding.txtClass.text = listTiket[position].classX
 
-//        holder.binding.cardList.setOnClickListener {
-//
-//            val intent = Intent(it.context, DetailPesawatActivity::class.java)
-//            intent.putExtra("id", listTiket[position].id)
-//            intent.putExtra("destinasi", listTiket[position].destination)
-//            intent.putExtra("departure", listTiket[position].departure)
-//            intent.putExtra("jadwal", listTiket[position].takeOff)
-//            intent.putExtra("harga", listTiket[position].price)
-//            intent.putExtra("totalchair", listTiket[position].totalChair)
-//            intent.putExtra("class", listTiket[position].classX)
-//
-//            it.context.startActivity(intent)
-//        }
+        holder.binding.cardList.setOnClickListener {
+
+            val intent = Intent(it.context, DetailTiketActivity::class.java)
+            intent.putExtra("id", listTiket[position].id)
+            intent.putExtra("destinasi", listTiket[position].destination)
+            intent.putExtra("departure", listTiket[position].departure)
+            intent.putExtra("jadwal", listTiket[position].takeOff)
+            intent.putExtra("harga", listTiket[position].price)
+            intent.putExtra("totalchair", listTiket[position].totalChair)
+            intent.putExtra("class", listTiket[position].classX)
+
+            it.context.startActivity(intent)
+        }
     }
 
 

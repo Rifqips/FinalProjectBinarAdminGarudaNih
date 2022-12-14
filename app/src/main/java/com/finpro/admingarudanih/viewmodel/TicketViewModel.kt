@@ -18,12 +18,14 @@ class TicketViewModel @Inject constructor(var api : ApiInterface): ViewModel() {
     lateinit var ldListTiketLokal : MutableLiveData<ResponseLocalTicket?>
     lateinit var ldListTicketIntr : MutableLiveData<ResponseLocalTicket?>
     lateinit var addNewTiket : MutableLiveData<ResponseAddTiket?>
+    lateinit var deleteDataTiket : MutableLiveData<ResponseLocalTicket?>
 
 
     init {
         ldListTiketLokal = MutableLiveData()
         ldListTicketIntr = MutableLiveData()
         addNewTiket = MutableLiveData()
+        deleteDataTiket = MutableLiveData()
     }
 
     fun getLdTiketLocal():MutableLiveData<ResponseLocalTicket?>{
@@ -35,7 +37,31 @@ class TicketViewModel @Inject constructor(var api : ApiInterface): ViewModel() {
     fun postNewTiket():MutableLiveData<ResponseAddTiket?>{
         return addNewTiket
     }
+    fun deleteTiketObserve(): MutableLiveData<ResponseLocalTicket?>{
+        return deleteDataTiket
+    }
 
+    fun callDeleteTiket(id : Int){
+        api.deleteTiket(id)
+            .enqueue(object : Callback<ResponseLocalTicket>{
+                override fun onResponse(
+                    call: Call<ResponseLocalTicket>,
+                    response: Response<ResponseLocalTicket>
+                ) {
+                    if (response.isSuccessful){
+                        deleteDataTiket.postValue(response.body())
+                        Log.d("delete",response.body()?.data.toString())
+                    }else{
+                        deleteDataTiket.postValue(null)
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseLocalTicket>, t: Throwable) {
+                    deleteDataTiket.postValue(null)
+                }
+
+            })
+    }
 
     fun callAddTiket(token : String,
                      arrive:String,
