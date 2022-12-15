@@ -36,11 +36,26 @@ class PostingTiketFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getAllData()
+        setTiketLokal()
+        setTiketIntr()
 
         binding.btnAdd.setOnClickListener {
             val intent = Intent(context, TambahTiketActivity::class.java)
             startActivity(intent)
         }
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setTiketLokal()
+        setTiketIntr()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        setTiketLokal()
+        setTiketIntr()
 
     }
 

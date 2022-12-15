@@ -225,7 +225,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout5"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="200dp"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_marginVertical="10dp"
         android:background="@drawable/rounded_bg"
@@ -313,7 +313,7 @@
             android:layout_height="45dp"
             android:ems="10"
             android:fontFamily="@font/poppins_medium"
-            android:hint="Jenis Penerbangan"
+            android:hint="Jenis Penerbangan (Domestic / International)"
             android:inputType="text"
             android:textColor="@color/warna_primary_font"
             android:textColorHint="@color/warna_primary_font"
@@ -439,3 +439,4 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
