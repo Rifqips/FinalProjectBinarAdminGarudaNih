@@ -1,5 +1,6 @@
 package com.finpro.admingarudanih.view.home.fragment
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -59,6 +60,20 @@ class PostingTiketFragment : Fragment() {
 
     }
 
+    override fun onPause() {
+        super.onPause()
+        setTiketLokal()
+        setTiketIntr()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        setTiketLokal()
+        setTiketIntr()
+    }
+
+
+
      private fun getAllData(){
          val swipeRefresh = binding.swipeRefresh
          swipeRefresh.setOnRefreshListener {
@@ -85,6 +100,7 @@ class PostingTiketFragment : Fragment() {
         }
         viewModel.callTicketLocal()
     }
+    @SuppressLint("NotifyDataSetChanged")
     private fun setTiketIntr(){
         val viewModel = ViewModelProvider(requireActivity()).get(TicketViewModel::class.java)
         viewModel.getLdTiketIntr().observe(viewLifecycleOwner){
