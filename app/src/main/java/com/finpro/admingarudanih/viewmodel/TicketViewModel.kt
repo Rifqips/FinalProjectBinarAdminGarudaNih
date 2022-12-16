@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.finpro.admingarudanih.model.tickets.RequestBodyTiket
 import com.finpro.admingarudanih.model.tickets.ResponseAddTiket
 import com.finpro.admingarudanih.model.tickets.ResponseLocalTicket
+import com.finpro.admingarudanih.model.tickets.ResponseUpdate
 import com.finpro.admingarudanih.network.ApiInterface
 import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Call
@@ -19,6 +20,7 @@ class TicketViewModel @Inject constructor(var api : ApiInterface): ViewModel() {
     lateinit var ldListTicketIntr : MutableLiveData<ResponseLocalTicket?>
     lateinit var addNewTiket : MutableLiveData<ResponseAddTiket?>
     lateinit var deleteDataTiket : MutableLiveData<ResponseLocalTicket?>
+    lateinit var updateDataTiket : MutableLiveData<ResponseUpdate?>
 
 
     init {
@@ -26,7 +28,9 @@ class TicketViewModel @Inject constructor(var api : ApiInterface): ViewModel() {
         ldListTicketIntr = MutableLiveData()
         addNewTiket = MutableLiveData()
         deleteDataTiket = MutableLiveData()
+        updateDataTiket = MutableLiveData()
     }
+
 
     fun getLdTiketLocal():MutableLiveData<ResponseLocalTicket?>{
         return ldListTiketLokal
@@ -39,6 +43,46 @@ class TicketViewModel @Inject constructor(var api : ApiInterface): ViewModel() {
     }
     fun deleteTiketObserve(): MutableLiveData<ResponseLocalTicket?>{
         return deleteDataTiket
+    }
+    fun updateTiketObserve():MutableLiveData<ResponseUpdate?>{
+        return updateDataTiket
+    }
+
+    fun callUpdateTiket(token : String,
+                        id: Int,
+                        arrive:String,
+                        classX:String,
+                        departure:String,
+                        departureCode:String,
+                        destination:String,
+                        destinationCode:String,
+                        flight:String,
+                        price: Int,
+                        takeOff:String,
+                        totalChair:Int,
+                        type:String){
+        api.editTiket(token,id,
+            RequestBodyTiket(arrive,classX, departure, departureCode, destination, destinationCode, flight, price, takeOff, totalChair, type))
+            .enqueue(object : Callback<ResponseUpdate>{
+                override fun onResponse(
+                    call: Call<ResponseUpdate>,
+                    response: Response<ResponseUpdate>
+                ) {
+                    if (response.isSuccessful){
+                        updateDataTiket.postValue(response.body())
+                        Log.d("update",response.body()?.message.toString())
+                    }else{
+                        updateDataTiket.postValue(null)
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseUpdate>, t: Throwable) {
+                    updateDataTiket.postValue(null)
+                    
+                }
+
+            })
+
     }
 
     fun callDeleteTiket(id : Int){

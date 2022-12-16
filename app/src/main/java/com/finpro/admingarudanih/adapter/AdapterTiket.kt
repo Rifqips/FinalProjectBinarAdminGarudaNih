@@ -41,6 +41,11 @@ class AdapterTiket (private val listTiket : List<Ticket>): RecyclerView.Adapter<
             intent.putExtra("harga", listTiket[position].price)
             intent.putExtra("totalchair", listTiket[position].totalChair)
             intent.putExtra("class", listTiket[position].classX)
+            intent.putExtra("desCode",listTiket[position].destinationCode)
+            intent.putExtra("depCode",listTiket[position].departureCode)
+            intent.putExtra("arrive",listTiket[position].arrive)
+            intent.putExtra("flight",listTiket[position].flight)
+            intent.putExtra("type",listTiket[position].type)
 
             it.context.startActivity(intent)
         }

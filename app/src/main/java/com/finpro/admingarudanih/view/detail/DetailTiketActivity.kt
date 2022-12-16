@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.finpro.admingarudanih.R
 import com.finpro.admingarudanih.databinding.ActivityDetailTiketBinding
 import com.finpro.admingarudanih.view.home.HomeActivity
+import com.finpro.admingarudanih.view.updatetiket.UpdateTiketActivity
 import com.finpro.admingarudanih.viewmodel.TicketViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -38,6 +39,12 @@ class DetailTiketActivity : AppCompatActivity() {
         val harga = itemListPesawat.getIntExtra("harga",0)
         val chair = itemListPesawat.getIntExtra("totalchair",0)
         val status = itemListPesawat.getStringExtra("class")
+        val desCode = itemListPesawat.getStringExtra("desCode")
+        val depCode = itemListPesawat.getStringExtra("depCode")
+        val arrive = itemListPesawat.getStringExtra("arrive")
+        val flight = itemListPesawat.getStringExtra("flight")
+        val type = itemListPesawat.getStringExtra("type")
+        val idTiket = itemListPesawat.getIntExtra("id",0)
 //        val image = itemListPesawat.getIntExtra("image",0)
 
         binding.txtInputAsal.text = keberangkatan
@@ -47,6 +54,27 @@ class DetailTiketActivity : AppCompatActivity() {
         binding.txtChair.text =  "Available "+chair.toString()
         binding.txtClass.text = status+" Class"
 //        binding.ivKota.setImageResource(image)
+
+        binding.btnEdit.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("destinasi", kota)
+            bundle.putString("destinasi",kota)
+            bundle.putString("departure",keberangkatan)
+            bundle.putString("takeOff",jadwal)
+            bundle.putInt("harga",harga)
+            bundle.putInt("totalchair",chair)
+            bundle.putString("class",status)
+            bundle.putString("desCode",desCode)
+            bundle.putString("depCode",depCode)
+            bundle.putString("arrive",arrive)
+            bundle.putString("flight",flight)
+            bundle.putString("type",type)
+            bundle.putInt("idTiket",idTiket)
+            val intent = Intent(this, UpdateTiketActivity::class.java)
+            intent.putExtras(bundle)
+            startActivity(intent)
+
+        }
 
     }
     fun hapusTiket(){
