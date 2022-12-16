@@ -6,10 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.viewpager.widget.ViewPager
 import com.finpro.admingarudanih.databinding.ActivityHomeBinding
-import com.finpro.admingarudanih.view.home.fragment.ListUserFragment
-import com.finpro.admingarudanih.view.home.fragment.PostingTiketFragment
-import com.finpro.admingarudanih.view.home.fragment.TambahAdminFragment
-import com.finpro.admingarudanih.view.home.fragment.ViewPagerAdapter
+import com.finpro.admingarudanih.view.home.fragment.*
 import com.google.android.material.tabs.TabLayout
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -40,6 +37,7 @@ class HomeActivity : AppCompatActivity() {
         adapter.addFragment(ListUserFragment(), "List User")
         adapter.addFragment(PostingTiketFragment(), "Posting Tiket")
         adapter.addFragment(TambahAdminFragment(), "Tambah Admin")
+        adapter.addFragment(ListTransaksiFragment(), "List Transaksi")
 
         // Adding the Adapter to the ViewPager
         pager.adapter = adapter
