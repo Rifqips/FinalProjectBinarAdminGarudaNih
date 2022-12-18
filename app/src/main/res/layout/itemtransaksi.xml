@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cardView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:background="@color/warna_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/txtDeparture"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="JKT"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/warna_primary_font"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+<!--            <TextView-->
+<!--                android:id="@+id/txtDestination"-->
+<!--                android:layout_width="100dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text=""-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:fontFamily="@font/poppins_semibold"-->
+<!--                android:textColor="@color/warna_primary_font"-->
+<!--                android:textSize="20sp"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/txtDeparture"-->
+<!--                app:layout_constraintStart_toStartOf="parent"/>-->
+
+
+            <!--  Divider  -->
+            <View
+                android:id="@+id/dividerView"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="30dp"
+                android:background="@color/warna_second_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtDeparture" />
+
+
+            <TextView
+                android:id="@+id/txtOrderBy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="orderBy"
+                android:layout_marginStart="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dividerView" />
+
+            <TextView
+                android:id="@+id/txtCodeTiket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="JKT"
+                android:layout_marginStart="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtOrderBy" />
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="128dp" />
+
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:layout_width="100dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:background="@color/background_class"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                app:layout_constraintBottom_toTopOf="@id/guideline2"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/guideline2">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/txtClassHistory"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginEnd="8dp"-->
+<!--                    android:fontFamily="@font/poppins_semibold"-->
+<!--                    android:paddingVertical="5dp"-->
+<!--                    android:text="Class"-->
+<!--                    android:textAlignment="textStart"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:layout_marginStart="5dp"-->
+<!--                    android:textSize="10sp"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    tools:ignore="SmallSp" />-->
+
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+            <TextView
+                android:id="@+id/txtTglOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="24/11/2022"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtIsPaid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Succes"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtTglOrder" />
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="28dp" />
+
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:id="@+id/constraintRound"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="55dp"-->
+<!--                android:background="@color/white"-->
+<!--                app:layout_constraintStart_toStartOf="@id/cardView3"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/guideline1"-->
+<!--                app:layout_constraintBottom_toTopOf="@id/guideline1">-->
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/ivUpward"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    app:layout_constraintStart_toStartOf="@+id/constraintRound"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@+id/constraintRound"-->
+<!--                    app:layout_constraintTop_toTopOf="@+id/constraintRound"-->
+<!--                    android:src="@drawable/ic_baseline_arrow_upward_24"-->
+<!--                    android:contentDescription="TODO" />-->
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/ivDownward"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    app:layout_constraintStart_toEndOf="@id/ivUpward"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@+id/constraintRound"-->
+<!--                    app:layout_constraintTop_toTopOf="@+id/constraintRound"-->
+<!--                    android:src="@drawable/ic_baseline_arrow_downward_24"-->
+<!--                    android:contentDescription="TODO" />-->
+
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

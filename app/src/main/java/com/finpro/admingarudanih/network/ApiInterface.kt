@@ -6,6 +6,7 @@ import com.finpro.admingarudanih.model.getusers.DataUserItem
 import com.finpro.admingarudanih.model.getusers.GetUserItem
 import com.finpro.admingarudanih.model.getusers.ResponseAllUsers
 import com.finpro.admingarudanih.model.tickets.*
+import com.finpro.admingarudanih.model.transaksi.ResponTransaksiTiket
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -34,6 +35,7 @@ interface ApiInterface {
                   @Path("id")id : Int,
                   @Body request:RequestBodyTiket): Call<ResponseUpdate>
 
-
+    @GET("/v1/trans")
+    fun getTransaksi(@Header("Authorization")authHeader : String) : Call<ResponTransaksiTiket>
 
 }

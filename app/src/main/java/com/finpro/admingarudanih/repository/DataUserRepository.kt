@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.finpro.admingarudanih.model.getusers.DataUserItem
 import com.finpro.admingarudanih.model.getusers.GetUserItem
 import com.finpro.admingarudanih.model.getusers.ResponseAllUsers
+import com.finpro.admingarudanih.model.transaksi.ResponTransaksiTiket
 import com.finpro.admingarudanih.network.ApiInterface
 import retrofit2.Call
 import retrofit2.Callback
@@ -14,8 +15,10 @@ import javax.inject.Inject
 class DataUserRepository @Inject constructor(private val api: ApiInterface) {
 
     private val getCurrentUser : MutableLiveData<ResponseAllUsers?> = MutableLiveData()
+    private val getHistoryUser: MutableLiveData<ResponTransaksiTiket?> = MutableLiveData()
 
     fun getCurrentUserObserve(): MutableLiveData<ResponseAllUsers?> = getCurrentUser
+    fun getHistoryObserve(): MutableLiveData<ResponTransaksiTiket?> = getHistoryUser
 
     fun getDataUser(token:String){
         api.getUser(token)
@@ -44,6 +47,33 @@ class DataUserRepository @Inject constructor(private val api: ApiInterface) {
                 }
 
             })
+    }
+    fun getTransaksi(token: String){
+        api.getTransaksi(token).enqueue(object : Callback<ResponTransaksiTiket>{
+            override fun onResponse(
+                call: Call<ResponTransaksiTiket>,
+                response: Response<ResponTransaksiTiket>
+            ) {
+                if (response.isSuccessful){
+                    val body = response.body()
+                    if (body != null){
+                        getHistoryUser.postValue(body)
+                    }else{
+                        getHistoryUser.value = null
+                        Log.d("HISTORY","Null")
+                    }
+                }else{
+                    getHistoryUser.value = null
+                    Log.d("HISTORY",response.message())
+                }
+            }
+
+            override fun onFailure(call: Call<ResponTransaksiTiket>, t: Throwable) {
+                getHistoryUser.postValue(null)
+                Log.d("HISTORY","onFailure")
+            }
+
+        })
     }
 
 }

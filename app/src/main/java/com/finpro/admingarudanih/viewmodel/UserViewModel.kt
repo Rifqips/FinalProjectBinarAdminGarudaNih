@@ -11,4 +11,7 @@ class UserViewModel @Inject constructor(private val repo: DataUserRepository): V
     fun getUserToken(token : String) = repo.getDataUser(token)
     fun getCurrentObserve() = repo.getCurrentUserObserve()
 
+    fun historyUser(token: String)= repo.getTransaksi(token)
+    fun getHistoryObserve() = repo.getHistoryObserve()
+
 }

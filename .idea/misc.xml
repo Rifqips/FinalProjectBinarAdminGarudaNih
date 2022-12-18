@@ -16,10 +16,14 @@
         <entry key="..\:/Farrel/kotlin/AdminGarudaNih/app/src/main/res/layout/activity_register.xml" value="0.3171875" />
         <entry key="..\:/Farrel/kotlin/AdminGarudaNih/app/src/main/res/layout/activity_splash_screen.xml" value="0.2713541666666667" />
         <entry key="..\:/Farrel/kotlin/AdminGarudaNih/app/src/main/res/layout/activity_tambah_tiket.xml" value="0.33" />
-        <entry key="..\:/Farrel/kotlin/AdminGarudaNih/app/src/main/res/layout/activity_update_tiket.xml" value="0.33" />
         <entry key="..\:/Farrel/kotlin/AdminGarudaNih/app/src/main/res/layout/activity_update_user.xml" value="0.36666666666666664" />
         <entry key="..\:/Farrel/kotlin/AdminGarudaNih/app/src/main/res/layout/fragment_posting_tiket.xml" value="0.2421875" />
         <entry key="..\:/Farrel/kotlin/AdminGarudaNih/app/src/main/res/layout/item.xml" value="0.2421875" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/FinalProjectBinarAdminGarudaNih/app/src/main/res/drawable/ic_baseline_arrow_downward_24.xml" value="0.239" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/FinalProjectBinarAdminGarudaNih/app/src/main/res/drawable/ic_baseline_arrow_upward_24.xml" value="0.239" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/FinalProjectBinarAdminGarudaNih/app/src/main/res/layout/activity_main.xml" value="0.353713768115942" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/FinalProjectBinarAdminGarudaNih/app/src/main/res/layout/fragment_list_transaksi.xml" value="0.353713768115942" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/FinalProjectBinarAdminGarudaNih/app/src/main/res/layout/itemtransaksi.xml" value="0.353713768115942" />
       </map>
     </option>
   </component>
