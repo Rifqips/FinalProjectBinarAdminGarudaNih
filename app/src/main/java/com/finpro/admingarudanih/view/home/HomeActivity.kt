@@ -1,17 +1,25 @@
 package com.finpro.admingarudanih.view.home
 
 import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager.widget.ViewPager
 import com.finpro.admingarudanih.databinding.ActivityHomeBinding
+import com.finpro.admingarudanih.view.auth.LoginActivity
 import com.finpro.admingarudanih.view.home.fragment.*
+import com.finpro.admingarudanih.viewmodel.AuthViewModel
+import com.finpro.admingarudanih.viewmodel.UserViewModel
 import com.google.android.material.tabs.TabLayout
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
+    lateinit var userViewModel : UserViewModel
+    lateinit var authViewModel : AuthViewModel
 
     private lateinit var binding : ActivityHomeBinding
     private lateinit var pager: ViewPager // creating object of ViewPager
@@ -22,6 +30,9 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
+        userViewModel = ViewModelProvider(this)[UserViewModel::class.java]
+        logout()
 
         // set the references of the declared objects above
         pager = binding.viewPager
@@ -58,5 +69,16 @@ class HomeActivity : AppCompatActivity() {
                 dialogInterface.dismiss()
             }
             .show()
+    }
+    private fun logout(){
+        binding.btnLogout.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java).also {
+                authViewModel.apply {
+                    deleteToken()
+                    deleteData()
+                }
+            })
+            Toast.makeText(this,"Berhasil Logout", Toast.LENGTH_SHORT).show()
+        }
     }
 }

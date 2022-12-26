@@ -37,6 +37,29 @@ android {
     buildFeatures{
         viewBinding true
     }
+
+    lintOptions {
+        disable 'Overdraw'
+        disable 'UnusedResources'
+        disable 'IconDuplicatesConfig'
+        disable 'IconLocation'
+        disable 'SmallSp'
+        disable 'SetTextI18n'
+        disable 'ContentDescription'
+        disable 'HardcodedText'
+        disable 'RtlHardcoded'
+        disable 'UnusedAttribute'
+        disable 'CustomSplashScreen'
+        disable 'GradleDependency'
+        disable 'SpUsage'
+        disable 'Typos'
+        disable 'NotifyDataSetChanged'
+        disable 'ObsoleteSdkInt'
+        disable 'IconLauncherShape'
+        disable 'RtlSymmetry'
+        disable 'KeyboardInaccessibleWidget'
+
+    }
 }
 
 dependencies {

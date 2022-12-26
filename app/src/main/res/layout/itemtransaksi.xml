@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:padding="10dp"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
@@ -29,13 +29,13 @@
 
             <TextView
                 android:id="@+id/txtDeparture"
-                android:layout_width="100dp"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:text="JKT"
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:textColor="@color/warna_primary_font"
-                android:textSize="20sp"
+                android:textSize="15dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
 

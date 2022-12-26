@@ -15,7 +15,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object ApiClient {
 
-    const val BASE_URL = "https://api-ticket.up.railway.app/"
+    const val BASE_URL = "https://ticket-main.up.railway.app/"
 
     private val logging: HttpLoggingInterceptor
         get() {
