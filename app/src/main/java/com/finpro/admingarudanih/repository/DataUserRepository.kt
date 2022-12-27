@@ -2,8 +2,6 @@ package com.finpro.admingarudanih.repository
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.finpro.admingarudanih.model.getusers.DataUserItem
-import com.finpro.admingarudanih.model.getusers.GetUserItem
 import com.finpro.admingarudanih.model.getusers.ResponseAllUsers
 import com.finpro.admingarudanih.model.transaksi.ResponTransaksiTiket
 import com.finpro.admingarudanih.network.ApiInterface
@@ -19,6 +17,7 @@ class DataUserRepository @Inject constructor(private val api: ApiInterface) {
 
     fun getCurrentUserObserve(): MutableLiveData<ResponseAllUsers?> = getCurrentUser
     fun getHistoryObserve(): MutableLiveData<ResponTransaksiTiket?> = getHistoryUser
+
 
     fun getDataUser(token:String){
         api.getUser(token)

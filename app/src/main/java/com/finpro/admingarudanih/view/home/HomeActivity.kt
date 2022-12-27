@@ -1,12 +1,17 @@
 package com.finpro.admingarudanih.view.home
 
 import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager.widget.ViewPager
 import com.finpro.admingarudanih.databinding.ActivityHomeBinding
+import com.finpro.admingarudanih.view.auth.LoginActivity
 import com.finpro.admingarudanih.view.home.fragment.*
+import com.finpro.admingarudanih.viewmodel.AuthViewModel
 import com.google.android.material.tabs.TabLayout
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -14,6 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityHomeBinding
+    private lateinit var authViewModel: AuthViewModel
     private lateinit var pager: ViewPager // creating object of ViewPager
     private lateinit var tab: TabLayout  // creating object of TabLayout
     private lateinit var bar: androidx.appcompat.widget.Toolbar    // creating object of ToolBar
@@ -22,6 +28,8 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
 
         // set the references of the declared objects above
         pager = binding.viewPager
@@ -45,6 +53,16 @@ class HomeActivity : AppCompatActivity() {
 
         // bind the viewPager with the TabLayout.
         tab.setupWithViewPager(pager)
+
+        binding.btnLogout.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java).also {
+                authViewModel.apply {
+                    deleteToken()
+                    deleteData()
+                }
+            })
+            Toast.makeText(this,"Berhasil Logout", Toast.LENGTH_SHORT).show()
+        }
     }
     override fun onBackPressed() {
 

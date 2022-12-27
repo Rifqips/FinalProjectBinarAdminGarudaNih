@@ -1,9 +1,9 @@
 package com.finpro.admingarudanih.network
 
+import com.finpro.admingarudanih.model.admin.DataAdmin
+import com.finpro.admingarudanih.model.admin.ResponAdmin
 import com.finpro.admingarudanih.model.auth.ResponseUserLogin
 import com.finpro.admingarudanih.model.auth.UserLogin
-import com.finpro.admingarudanih.model.getusers.DataUserItem
-import com.finpro.admingarudanih.model.getusers.GetUserItem
 import com.finpro.admingarudanih.model.getusers.ResponseAllUsers
 import com.finpro.admingarudanih.model.tickets.*
 import com.finpro.admingarudanih.model.transaksi.ResponTransaksiTiket
@@ -37,5 +37,8 @@ interface ApiInterface {
 
     @GET("/v1/trans")
     fun getTransaksi(@Header("Authorization")authHeader : String) : Call<ResponTransaksiTiket>
+
+    @POST("v1/admin/register")
+    fun postResgiterAdmin(@Header("Authorization")authHeader : String, @Body request: DataAdmin) : Call<ResponAdmin>
 
 }

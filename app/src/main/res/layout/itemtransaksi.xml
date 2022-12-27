@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:padding="10dp"
-    android:layout_height="match_parent">
+    android:layout_marginBottom="20dp"
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
@@ -28,10 +29,10 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/txtDeparture"
+                android:id="@+id/txtNoKursi"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="JKT"
+                android:text="NoKursi"
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:textColor="@color/warna_primary_font"
@@ -61,7 +62,7 @@
                 android:background="@color/warna_second_button"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtDeparture" />
+                app:layout_constraintTop_toBottomOf="@+id/txtNoKursi" />
 
 
             <TextView
@@ -74,10 +75,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/dividerView" />
 
             <TextView
-                android:id="@+id/txtCodeTiket"
+                android:id="@+id/txtKtp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="JKT"
+                android:text="Ktp"
                 android:layout_marginStart="10dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtOrderBy" />

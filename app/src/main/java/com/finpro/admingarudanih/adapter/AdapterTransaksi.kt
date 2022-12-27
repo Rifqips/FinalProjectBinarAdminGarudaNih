@@ -18,7 +18,7 @@ class AdapterTransaksi(val listTransaksi: List<Transaction?>): RecyclerView.Adap
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         //holder.binding.txtDestination.text = listTransaksi[position]!!.ticketCode
-        holder.binding.txtDeparture.text = listTransaksi[position]!!.ticketCode
+        holder.binding.txtNoKursi.text = listTransaksi[position]!!.numChair.toString()
        // holder.binding.txtClassHistory.text = listTransaksi[position]!!.code
         holder.binding.txtOrderBy.text = "Order By : "+ listTransaksi[position]!!.orderBy
         holder.binding.txtTglOrder.text = listTransaksi[position]!!.createdAt
@@ -28,7 +28,7 @@ class AdapterTransaksi(val listTransaksi: List<Transaction?>): RecyclerView.Adap
         }else if (listTransaksi[position]!!.isPaid == true){
             holder.binding.txtIsPaid.text = "Sudah Bayar"
         }
-        holder.binding.txtCodeTiket.text = "Code Ticket : "+ listTransaksi[position]!!.ticketCode
+        holder.binding.txtKtp.text = "Ktp Penumpang : "+ listTransaksi[position]!!.ktp
 
     }
 
