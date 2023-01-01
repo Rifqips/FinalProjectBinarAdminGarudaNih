@@ -57,6 +57,9 @@ class TambahAdminFragment : Fragment() {
             val savePw = binding.etPassword.text.toString()
             val saveUpw = binding.etConfPassword.text.toString()
             registerAdmin(tokenAdmin,saveName, saveEmail, savePw)
+            Toast.makeText(context,"add data admin sukses", Toast.LENGTH_SHORT).show()
+            val intent = Intent(context, HomeActivity::class.java)
+            startActivity(intent)
         }
 
         binding.etPassword.addTextChangedListener{
@@ -100,8 +103,8 @@ class TambahAdminFragment : Fragment() {
         adminViewModel.postAdmin.observe(requireActivity()){
             if (it != null){
                 Toast.makeText(context,"add data admin sukses", Toast.LENGTH_SHORT).show()
-                val intent = Intent(context, HomeActivity::class.java)
-                startActivity(intent)
+//                val intent = Intent(context, HomeActivity::class.java)
+//                startActivity(intent)
             }
         }
         requireActivity().finish()

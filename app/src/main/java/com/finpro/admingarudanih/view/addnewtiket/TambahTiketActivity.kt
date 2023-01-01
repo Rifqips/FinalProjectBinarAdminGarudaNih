@@ -44,7 +44,7 @@ class TambahTiketActivity : AppCompatActivity() {
             val addType = binding.etType.text.toString()
 
             addTiket(authToken, addArrive,addClass,addDepa,addDepaCode,addDesti,addDestiCode,addFlight,addPrice.toInt(),addTO,addKursi.toInt(),addType)
-
+            Toast.makeText(this,"add data sukses", Toast.LENGTH_SHORT).show()
         }
 
 
