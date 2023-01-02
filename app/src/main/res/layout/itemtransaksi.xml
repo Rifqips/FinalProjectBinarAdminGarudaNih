@@ -5,17 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:padding="10dp"
-<<<<<<< HEAD
-=======
     android:layout_marginBottom="20dp"
->>>>>>> master
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
         app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,19 +28,14 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-<<<<<<< HEAD
-                android:id="@+id/txtDeparture"
-                android:layout_width="200dp"
-=======
                 android:id="@+id/txtNoKursi"
                 android:layout_width="100dp"
->>>>>>> master
                 android:layout_height="wrap_content"
                 android:text="NoKursi"
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:textColor="@color/warna_primary_font"
-                android:textSize="15dp"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
 

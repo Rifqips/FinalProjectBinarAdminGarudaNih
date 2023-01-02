@@ -37,10 +37,6 @@ android {
     buildFeatures{
         viewBinding true
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> master
     lintOptions {
         disable 'Overdraw'
         disable 'UnusedResources'
