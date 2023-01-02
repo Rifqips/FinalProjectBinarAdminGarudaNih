@@ -27,7 +27,7 @@ class DetailTiketActivity : AppCompatActivity() {
         getListPesawat()
         binding.btnHapus.setOnClickListener {
             hapusTiket()
-            Toast.makeText(this, "Tiket Berhasil Dihapus", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Berhasil Dihapus", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this,HomeActivity::class.java))
         }
     }
