@@ -70,7 +70,11 @@ class HomeActivity : AppCompatActivity() {
             .setTitle("Tutup Aplikasi")
             .setMessage("Yakin tutup dari aplikasi?")
             .setPositiveButton("Ya"){ dialogInterface: DialogInterface, i: Int ->
-                finishAffinity()
+                Intent(Intent.ACTION_MAIN).apply {
+                    addCategory(Intent.CATEGORY_HOME)
+                    flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                    startActivity(this)
+                }
             }
             .setNegativeButton("Tidak"){ dialogInterface: DialogInterface, i: Int ->
                 dialogInterface.dismiss()
