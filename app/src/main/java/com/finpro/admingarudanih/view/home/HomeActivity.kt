@@ -12,7 +12,10 @@ import com.finpro.admingarudanih.databinding.ActivityHomeBinding
 import com.finpro.admingarudanih.view.auth.LoginActivity
 import com.finpro.admingarudanih.view.home.fragment.*
 import com.finpro.admingarudanih.viewmodel.AuthViewModel
+<<<<<<< HEAD
 import com.finpro.admingarudanih.viewmodel.UserViewModel
+=======
+>>>>>>> master
 import com.google.android.material.tabs.TabLayout
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,6 +25,7 @@ class HomeActivity : AppCompatActivity() {
     lateinit var authViewModel : AuthViewModel
 
     private lateinit var binding : ActivityHomeBinding
+    private lateinit var authViewModel: AuthViewModel
     private lateinit var pager: ViewPager // creating object of ViewPager
     private lateinit var tab: TabLayout  // creating object of TabLayout
     private lateinit var bar: androidx.appcompat.widget.Toolbar    // creating object of ToolBar
@@ -33,6 +37,8 @@ class HomeActivity : AppCompatActivity() {
         authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
         userViewModel = ViewModelProvider(this)[UserViewModel::class.java]
         logout()
+
+        authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
 
         // set the references of the declared objects above
         pager = binding.viewPager
@@ -56,6 +62,16 @@ class HomeActivity : AppCompatActivity() {
 
         // bind the viewPager with the TabLayout.
         tab.setupWithViewPager(pager)
+
+        binding.btnLogout.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java).also {
+                authViewModel.apply {
+                    deleteToken()
+                    deleteData()
+                }
+            })
+            Toast.makeText(this,"Berhasil Logout", Toast.LENGTH_SHORT).show()
+        }
     }
     override fun onBackPressed() {
 

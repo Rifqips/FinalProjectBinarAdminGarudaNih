@@ -37,7 +37,10 @@ android {
     buildFeatures{
         viewBinding true
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
     lintOptions {
         disable 'Overdraw'
         disable 'UnusedResources'
@@ -99,5 +102,8 @@ dependencies {
 
     //
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
+    //testing
+    testImplementation "io.mockk:mockk:1.13.1"
 
 }
