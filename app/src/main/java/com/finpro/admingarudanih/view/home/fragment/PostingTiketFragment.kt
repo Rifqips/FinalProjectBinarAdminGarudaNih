@@ -95,7 +95,7 @@ class PostingTiketFragment : Fragment() {
                 binding.rvLocal.adapter = tiketAdapter
                 tiketAdapter.notifyDataSetChanged()
             } else {
-                Toast.makeText(requireActivity(), "Data Tidak Tampil", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireActivity(), "", Toast.LENGTH_SHORT).show()
             }
         }
         viewModel.callTicketLocal()
@@ -110,7 +110,7 @@ class PostingTiketFragment : Fragment() {
                 binding.rvInternational.adapter = tiketAdapter
                 tiketAdapter.notifyDataSetChanged()
             } else {
-                Toast.makeText(requireActivity(), "Data Tidak Tampil", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireActivity(), "", Toast.LENGTH_SHORT).show()
             }
         }
         viewModel.callTicketIntr()
