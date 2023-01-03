@@ -45,7 +45,7 @@ class LoginActivity : AppCompatActivity() {
 //        binding.btnRegister.setOnClickListener {
 //            startActivity(Intent(this, RegisterActivity::class.java))
 //        }
-        binding.btnLogin.isGone = true
+        binding.btnRegister.isGone = true
 
         binding.btnLogin.setOnClickListener {
 //            startActivity(Intent(this, HomeBottomActivity::class.java))
