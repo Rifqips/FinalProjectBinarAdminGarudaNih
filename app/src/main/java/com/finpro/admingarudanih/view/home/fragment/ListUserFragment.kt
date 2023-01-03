@@ -57,7 +57,7 @@ class ListUserFragment : Fragment() {
                 adapterHistory = AdapterGetUser(it.data.user)
                 binding.rvGetUser.adapter = adapterHistory
                 Log.d(TAG, "onViewCreated: ${it.data.user}")
-                Toast.makeText(context, "Data Tampil", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "", Toast.LENGTH_SHORT).show()
                 adapterHistory.notifyDataSetChanged()
             }
         }
