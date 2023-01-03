@@ -30,6 +30,10 @@ class TambahTiketActivity : AppCompatActivity() {
             }
         }
 
+        binding.ivBackDetail.setOnClickListener {
+            startActivity(Intent(this,HomeActivity::class.java))
+        }
+
         binding.btnTambahTiket.setOnClickListener {
             val addArrive = binding.etArrive.text.toString()
             val addClass = binding.etClass.text.toString()
